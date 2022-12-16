@@ -112,7 +112,8 @@ compatibility tables to describe the interoperability requirements of these piec
 [v2.8.1](https://github.com/ionic-team/stencil/releases/tag/v2.8.1). This experimental support was removed in 
 [v2.9.0](https://github.com/ionic-team/stencil/releases/tag/v2.9.0). For additional reasoning behind this decision, 
 please see [this document](https://github.com/ionic-team/stencil/blob/main/docs/adr/0013-deno-removal.md).
-\** Node 18 is likely to work with Stencil v2
+
+\** Node 18 is likely to work with Stencil v2, although it was never formally supported
 
 ### Testing Libraries
 
