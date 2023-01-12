@@ -10,7 +10,6 @@ contributors:
 
 Stencil components render their children declaratively in their `render` method [using JSX](templating-jsx). Most of the time, the `render()` function describes the children elements that are about to be rendered, but it can also be used to render attributes of the host element itself.
 
-
 ## `<Host>`
 
 The `Host` functional component can be used at the root of the render function to set attributes and event listeners to the host element itself. This works just like any other JSX:
@@ -19,7 +18,7 @@ The `Host` functional component can be used at the root of the render function t
 // Host is imported from '@stencil/core'
 import { Component, Host, h } from '@stencil/core';
 
-@Component({tag: 'todo-list'})
+@Component({ tag: 'todo-list' })
 export class TodoList {
   @Prop() open = false;
   render() {
@@ -28,15 +27,16 @@ export class TodoList {
         aria-hidden={this.open ? 'false' : 'true'}
         class={{
           'todo-list': true,
-          'is-open': this.open
+          'is-open': this.open,
         }}
       />
-    )
+    );
   }
 }
 ```
 
 If `this.open === true`, it will render:
+
 ```tsx
 <todo-list class="todo-list is-open" aria-hidden="false"></todo-list>
 ```
@@ -49,7 +49,6 @@ similarly, if `this.open === false`:
 
 `<Host>` is a virtual component, a virtual API exposed by stencil to declaratively set the attributes of the host element, it will never be rendered in the DOM, i.e. you will never see `<Host>` in Chrome Dev Tools for instance.
 
-
 ### `<Host>` can work as a `<Fragment>`
 
 `<Host>` can also be used when more than one component needs to be rendered at the root level for example:
@@ -57,7 +56,7 @@ similarly, if `this.open === false`:
 It could be achieved by a `render()` method like this:
 
 ```tsx
-@Component({tag: 'my-cmp'})
+@Component({ tag: 'my-cmp' })
 export class MyCmp {
   render() {
     return (

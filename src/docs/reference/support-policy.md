@@ -3,7 +3,7 @@ title: Support Policy
 description: Support Policy
 url: /docs/support-policy
 contributors:
-- rwaskiewicz
+  - rwaskiewicz
 ---
 
 # Support Policy
@@ -24,13 +24,13 @@ recommends updating to the newest version of the Stencil for the latest features
 The current status of each Stencil version is:
 
 | Version |     Status     |   Released   | Maintenance Ends | Ext. Support Ends |
-|:-------:|:--------------:|:------------:|:----------------:|:-----------------:|
+| :-----: | :------------: | :----------: | :--------------: | :---------------: |
 |   V2    |   **Active**   | Aug 08, 2020 |       TBD        |        TBD        |
 |   V1    | End of Support | Jun 03, 2019 |   Aug 08, 2020   |   Aug 08, 2020    |
 
 **Maintenance Period**: Only critical bug and security fixes. No major feature improvements.
 
-**Extended Support Period**: For teams and organizations that require additional long term support, Ionic has extended 
+**Extended Support Period**: For teams and organizations that require additional long term support, Ionic has extended
 support options available. To learn more, see our
 [Enterprise offerings](https://ionicframework.com/sales?product_of_interest=Design%20Systems).
 
@@ -43,13 +43,13 @@ will be added. The maintenance period shall last six months from the release of 
 
 Once the maintenance period has ended for a version of Stencil, that version enters the extended support period. During
 the extended support period, only critical bug and security fixes will be applied for teams and organizations using
-Stencil's Enterprise offerings. The extended support period lasts for six months from the release of the new major 
+Stencil's Enterprise offerings. The extended support period lasts for six months from the release of the new major
 version.
 
 The table below describes a theoretical timeline of releases:
 
 | Version |        Status         |   Released   | Maintenance Ends | Ext. Support Ends |
-|:-------:|:---------------------:|:------------:|:----------------:|:-----------------:|
+| :-----: | :-------------------: | :----------: | :--------------: | :---------------: |
 |    D    |        Active         | Jan 01, 2022 |       TBD        |        TBD        |
 |    C    |      Maintenance      | Jul 07, 2021 |   Jul 01, 2022   |   Jan 01, 2023    |
 |    B    | Extended Support Only | Jan 01, 2021 |   Jan 07, 2022   |   Jul 07, 2022    |
@@ -66,14 +66,14 @@ Stencil acts as a compiler for a project's web components, and works closely wit
 TSX to vanilla JavaScript. To ensure compatibility between the two, Stencil takes an opinionated stance on which version
 of the TypeScript compiler must be used.
 
-Stencil includes a recent copy of the TypeScript compiler in its distributable* to guarantee this compatibility. 
+Stencil includes a recent copy of the TypeScript compiler in its distributable\* to guarantee this compatibility.
 The Stencil team is committed to keeping its version of TypeScript up to date and, as of Stencil v2.10.0, attempts to be
 within one minor version of the latest TypeScript release.
 
 The table below describes recent versions of Stencil and the version of TypeScript each version shipped with.
 
 | Stencil Version | TypeScript Version |
-|:---------------:|:------------------:|
+| :-------------: | :----------------: |
 |     v2.21.0     |       v4.9.3       |
 |     v2.20.0     |       v4.8.4       |
 |     v2.18.0     |       v4.7.4       |
@@ -91,7 +91,7 @@ TypeScript once every three months as well. Updates to the version of TypeScript
 The Stencil team acknowledges that TypeScript minor version releases may contain breaking changes. The Stencil team will
 do everything in its power to avoid propagating breaking changes to its user base.
 
-\* The TypeScript compiler is never included in the output of your Stencil project, and is only used for compilation 
+\* The TypeScript compiler is never included in the output of your Stencil project, and is only used for compilation
 and type checking purposes.
 
 ## Compatibility Recommendations
@@ -103,31 +103,31 @@ compatibility tables to describe the interoperability requirements of these piec
 
 ### JavaScript Runtime
 
-| Stencil Version | Node v10 | Node v12 | Node v14 | Node v16 | Node v18 |  Deno*  |
-|:---------------:|:--------:|:--------:|:--------:|:--------:|:--------:|:-------:|
+| Stencil Version | Node v10 | Node v12 | Node v14 | Node v16 | Node v18 | Deno\*  |
+| :-------------: | :------: | :------: | :------: | :------: | :------: | :-----: |
 |       V2        | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#9888; |
 |       V1        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#9888; |
 
 \* Experimental Deno support was available in Stencil
 [v1.16.0](https://github.com/ionic-team/stencil/releases/tag/v1.16.0) through
-[v2.8.1](https://github.com/ionic-team/stencil/releases/tag/v2.8.1). This experimental support was removed in 
-[v2.9.0](https://github.com/ionic-team/stencil/releases/tag/v2.9.0). For additional reasoning behind this decision, 
+[v2.8.1](https://github.com/ionic-team/stencil/releases/tag/v2.8.1). This experimental support was removed in
+[v2.9.0](https://github.com/ionic-team/stencil/releases/tag/v2.9.0). For additional reasoning behind this decision,
 please see [this document](https://github.com/ionic-team/stencil/blob/main/docs/adr/0013-deno-removal.md).
 
 ### Testing Libraries
 
 #### Jest
 
-| Stencil Version | Jest v24 | Jest v25 | Jest v26 | Jest v27 | Jest v28* |
-|:---------------:|:--------:|:--------:|:--------:|:--------:|:---------:|
-|       V2        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060;  |
-|       V1        | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#10060;  |
+| Stencil Version | Jest v24 | Jest v25 | Jest v26 | Jest v27 | Jest v28\* |
+| :-------------: | :------: | :------: | :------: | :------: | :--------: |
+|       V2        | &#9989;  | &#9989;  | &#9989;  | &#9989;  |  &#10060;  |
+|       V1        | &#9989;  | &#9989;  | &#9989;  | &#10060; |  &#10060;  |
 
 \* Support for Jest 28 will be released in an upcoming version of Stencil.
 
 #### Puppeteer
 
 | Stencil Version | Puppeteer v5 | Puppeteer v6 | Puppeteer v7 | Puppeteer v8 | Puppeteer v9 | Puppeteer v10 |
-|:---------------:|:------------:|:------------:|:------------:|:------------:|:------------:|:-------------:|
+| :-------------: | :----------: | :----------: | :----------: | :----------: | :----------: | :-----------: |
 |       V2        |   &#9989;    |   &#9989;    |   &#9989;    |   &#9989;    |   &#9989;    |    &#9989;    |
 |       V1        |   &#9989;    |   &#9989;    |   &#9989;    |   &#9989;    |   &#9989;    |   &#10060;    |

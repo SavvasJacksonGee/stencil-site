@@ -24,8 +24,7 @@ import thunk from 'redux-thunk'; // Add-on you might want
 import logger from 'redux-logger'; // Add-on you might want
 import rootReducer from '../reducers/index';
 
-const configureStore = (preloadedState: any) =>
-  createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger));
+const configureStore = (preloadedState: any) => createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger));
 
 export { configureStore };
 ```
@@ -39,7 +38,7 @@ import myReducer from './myReducer';
 import { combineReducers } from 'redux';
 
 const rootReducer = (combineReducers as any)({
-  myReducer
+  myReducer,
 });
 
 export default rootReducer;
@@ -53,7 +52,7 @@ import { configureStore } from '../../store/index'; // index required due to bug
 
 @Component({
   tag: 'my-app',
-  styleUrl: 'my-app.scss'
+  styleUrl: 'my-app.scss',
 })
 export class MyApp {
   @Prop({ context: 'store' }) store: Store;
@@ -65,12 +64,13 @@ export class MyApp {
 ```
 
 ### Map state and dispatch to props
+
 ```tsx
 import { Store, Action } from '@stencil/redux';
 
 @Component({
   tag: 'my-component',
-  styleUrl: 'my-component.scss'
+  styleUrl: 'my-component.scss',
 })
 export class MyComponent {
   @Prop({ context: 'store' }) store: Store;
@@ -80,18 +80,18 @@ export class MyComponent {
   changeName: Action;
 
   componentWillLoad() {
-    this.store.mapStateToProps(this, (state) => {
+    this.store.mapStateToProps(this, state => {
       const {
-        myReducer: { name }
+        myReducer: { name },
       } = state;
       return {
-        name
-      }
+        name,
+      };
     });
 
     this.store.mapDispatchToProps(this, {
-      changeName
-    })
+      changeName,
+    });
   }
 
   doNameChange(newName: string) {

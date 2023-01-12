@@ -72,7 +72,7 @@ it('should create toggle, unchecked by default', async () => {
 
   expect(ionChange).toHaveReceivedEventDetail({
     checked: true,
-    value: 'on'
+    value: 'on',
   });
 });
 ```
@@ -124,17 +124,17 @@ const props = {
 
 await page.setContent(`<prop-cmp></prop-cmp>`);
 
-await page.$eval('prop-cmp',
+await page.$eval(
+  'prop-cmp',
   (elm: any, { first, lastName }) => {
     elm.first = first;
     elm.lastName = lastName;
   },
-  props 
+  props,
 );
 
 await page.waitForChanges();
 ```
-
 
 #### Call a @Method() on a component
 
@@ -150,7 +150,7 @@ const methodRtnValue = await elm.callMethod('someMethod');
 const page = await newE2EPage({
   html: `
       <dom-interaction></dom-interaction>
-    `
+    `,
 });
 
 const input = await page.find('dom-interaction >>> .input');
@@ -229,4 +229,4 @@ export const config: Config = {
 };
 ```
 
-Check [this part of the doc](/docs/config#testing) to learn more about the possibilities on this matter. 
+Check [this part of the doc](/docs/config#testing) to learn more about the possibilities on this matter.

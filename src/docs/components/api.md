@@ -16,7 +16,6 @@ contributors:
 
 The whole API provided by stencil can be condensed in a set of decorators, lifecycles hooks and rendering methods.
 
-
 ## Decorators
 
 Decorators are a pure compiler-time construction used by stencil to collect all the metadata about a component, the properties, attributes and methods it might expose, the events it might emit or even the associated stylesheets.
@@ -31,7 +30,6 @@ Once all the metadata has been collected, all the decorators are removed from th
 - [@Event()](events#event-decorator) declares a DOM event the component might emit
 - [@Listen()](events#listen-decorator) listens for DOM events
 
-
 ## Lifecycle hooks
 
 - [connectedCallback()](component-lifecycle#connectedcallback-)
@@ -45,7 +43,6 @@ Once all the metadata has been collected, all the decorators are removed from th
 - [componentDidUpdate()](component-lifecycle#componentdidupdate-)
 - **[render()](templating-jsx)**
 
-
 ## The appload event
 
 In addition to component-specific lifecycle hooks, a special event called `appload` will be emitted when the app and all of its child components have finished loading. You can listen for it on the `window` object.
@@ -53,7 +50,7 @@ In addition to component-specific lifecycle hooks, a special event called `applo
 If you have multiple apps on the same page, you can determine which app emitted the event by checking `event.detail.namespace`. This will be the value of the [namespace config option](/docs/config/testing#namespace) you've set in your Stencil config.
 
 ```tsx
-window.addEventListener('appload', (event) => {
+window.addEventListener('appload', event => {
   console.log(event.detail.namespace);
 });
 ```

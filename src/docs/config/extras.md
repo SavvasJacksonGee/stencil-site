@@ -9,13 +9,13 @@ contributors:
 
 # Extras
 
-The `extras` config contains options to enable new/experimental features in Stencil, add & remove runtime for DOM 
-features that require manipulations to polyfills, etc. For example, not all DOM APIs are fully polyfilled when 
+The `extras` config contains options to enable new/experimental features in Stencil, add & remove runtime for DOM
+features that require manipulations to polyfills, etc. For example, not all DOM APIs are fully polyfilled when
 using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
 
 By default, Stencil does not work on IE11, Edge 18 and below (Edge before it moved to Chromium) and Safari 10. In order to support legacy browsers, the browsers would need to download and run polyfills. By using the `extras` config, apps can opt-in these additional runtime settings.
 
-Example `extras` config when __supporting__ legacy browsers:
+Example `extras` config when **supporting** legacy browsers:
 
 ```tsx
 export const config: Config = {
@@ -29,7 +29,7 @@ export const config: Config = {
     appendChildSlotFix: false,
     cloneNodeFix: false,
     slotChildNodesFix: true,
-  }
+  },
 };
 ```
 
@@ -69,8 +69,9 @@ This is an experimental flag that, when set to `true`, will allow downstream pro
 and use a bundler such as Vite to lazily load the Stencil library's components.
 
 In order for this flag to work:
+
 1. The Stencil library must expose lazy loadable components, such as those created with the
-[`dist` output target](/docs/distribution)
+   [`dist` output target](/docs/distribution)
 2. The Stencil library must be recompiled with this flag set to `true`
 
 This flag works by creating dynamic import statements for every lazily loadable component in a Stencil project.
@@ -82,14 +83,14 @@ Defaults to `false`.
 
 Dispatches component lifecycle events. By default these events are not dispatched, but by enabling this to `true` these events can be listened for on `window`. Mainly used for testing.
 
-| Event Name                     | Description                                                    |
-|--------------------------------|----------------------------------------------------------------|
-| `stencil_componentWillLoad`    | Dispatched for each component's `componentWillLoad`. |
-| `stencil_componentWillUpdate`  | Dispatched for each component's `componentWillUpdate`. |
-| `stencil_componentWillRender`  | Dispatched for each component's `componentWillRender`. |
-| `stencil_componentDidLoad`     | Dispatched for each component's `componentDidLoad`. |
-| `stencil_componentDidUpdate`   | Dispatched for each component's `componentDidUpdate`. |
-| `stencil_componentDidRender`   | Dispatched for each component's `componentDidRender`. |
+| Event Name                    | Description                                            |
+| ----------------------------- | ------------------------------------------------------ |
+| `stencil_componentWillLoad`   | Dispatched for each component's `componentWillLoad`.   |
+| `stencil_componentWillUpdate` | Dispatched for each component's `componentWillUpdate`. |
+| `stencil_componentWillRender` | Dispatched for each component's `componentWillRender`. |
+| `stencil_componentDidLoad`    | Dispatched for each component's `componentDidLoad`.    |
+| `stencil_componentDidUpdate`  | Dispatched for each component's `componentDidUpdate`.  |
+| `stencil_componentDidRender`  | Dispatched for each component's `componentDidRender`.  |
 
 ### safari10
 

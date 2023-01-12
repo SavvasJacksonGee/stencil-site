@@ -8,8 +8,10 @@ contributors:
   - corysmc
   - bitflower
 ---
+
 Want to skip the tutorial and just check out the code?
 https://github.com/corysmc/ionic-pwa-stencil-redux
+
 ## What is Redux?
 
 Redux is a state management library that separates app state and business logic from your view, and makes that state available across any of your stencil components, which makes it a great addition to stencil when building a PWA with stencil. For more info on Redux, [check out their docs](https://redux.js.org)
@@ -53,17 +55,12 @@ interface MyAppState {
 ```tsx
 // /src/store/index.ts
 
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import rootReducer from "./reducers";
-import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
-export const configureStore = (preloadedState: Partial<MyAppState>) =>
-  createStore(
-    rootReducer,
-    preloadedState,
-    composeWithDevTools(applyMiddleware(thunk))
-  );
+export const configureStore = (preloadedState: Partial<MyAppState>) => createStore(rootReducer, preloadedState, composeWithDevTools(applyMiddleware(thunk)));
 ```
 
 ## 4. Create reducers
@@ -73,11 +70,11 @@ Reducers are a way to separate your app logic. Redux has a function to combine t
 ```tsx
 // /src/store/reducers/index.ts
 
-import user from "./user";
-import { combineReducers } from "redux";
+import user from './user';
+import { combineReducers } from 'redux';
 
 export const rootReducer = combineReducers({
-  user
+  user,
 });
 
 export default rootReducer;
@@ -90,16 +87,15 @@ Your user reducer might look something like this:
 
 const getInitialState = (): UserState => {
   return {
-    name: "StencilJS"
+    name: 'StencilJS',
   };
 };
 
-const user = (
-  state = getInitialState(),
-  action: any /*for now...*/
-): UserState => {
-  switch (action.type) {
+const user = (state = getInitialState(), action: any /*for now...*/): UserState => {
+  switch (
+    action.type
     // here's where we handle actions
+  ) {
   }
   return state;
 };
@@ -113,30 +109,30 @@ Initialize the store from within your root component. The store can then be acce
 
 ```tsx
 // /src/components/app-root/app-root.tsx
-import "@stencil/redux";
-import { Component, Prop, State, h } from "@stencil/core";
-import { Store } from "@stencil/redux";
-import { configureStore } from "../../store";
+import '@stencil/redux';
+import { Component, Prop, State, h } from '@stencil/core';
+import { Store } from '@stencil/redux';
+import { configureStore } from '../../store';
 
 @Component({
-  tag: "app-root",
-  styleUrl: "app-root.css"
+  tag: 'app-root',
+  styleUrl: 'app-root.css',
 })
 export class MyApp {
   @State()
-  name: MyAppState["user"]["name"];
+  name: MyAppState['user']['name'];
 
-  @Prop({ context: "store" })
+  @Prop({ context: 'store' })
   store: Store;
 
   async componentWillLoad() {
     this.store.setStore(configureStore({}));
     this.store.mapStateToProps(this, (state: MyAppState) => {
       const {
-        user: { name }
+        user: { name },
       } = state;
       return {
-        name
+        name,
       };
     });
   }
@@ -165,29 +161,29 @@ To access the store from within any of your child components you need to use the
 
 ```tsx
 // /src/components/my-name-input-component/my-name-input-component.tsx
-import { Component, State, Prop, h } from "@stencil/core";
-import { Store, Unsubscribe } from "@stencil/redux";
+import { Component, State, Prop, h } from '@stencil/core';
+import { Store, Unsubscribe } from '@stencil/redux';
 
 @Component({
-  tag: "my-name-input-component",
-  styleUrl: "name-input-component.css"
+  tag: 'my-name-input-component',
+  styleUrl: 'name-input-component.css',
 })
 export class NameInputComponent {
   storeUnsubscribe: Unsubscribe;
 
   @State()
-  name: MyAppState["user"]["name"];
+  name: MyAppState['user']['name'];
 
-  @Prop({ context: "store" })
+  @Prop({ context: 'store' })
   store: Store;
 
   componentWillLoad() {
     this.storeUnsubscribe = this.store.mapStateToProps(this, (state: MyAppState) => {
       const {
-        user: { name }
+        user: { name },
       } = state;
       return {
-        name
+        name,
       };
     });
   }
@@ -217,7 +213,7 @@ Next we want to change the name `StencilJS` and update our state to reflect that
 
 ```tsx
 // /src/store/actions/index.ts
-import { SetUserName } from "./user";
+import { SetUserName } from './user';
 
 export interface NullAction {
   type: TypeKeys.NULL;
@@ -228,9 +224,9 @@ export type ActionTypes = NullAction | SetUserName;
 
 export enum TypeKeys {
   // Won't match anything
-  NULL = "NULL",
-  ERROR = "ERROR",
-  SET_USER_NAME = "SET_USER_NAME"
+  NULL = 'NULL',
+  ERROR = 'ERROR',
+  SET_USER_NAME = 'SET_USER_NAME',
 }
 ```
 
@@ -240,7 +236,7 @@ Typically you'll have an action file for each reducer, as shown below:
 
 ```tsx
 // /src/store/actions/user.ts
-import { TypeKeys } from "./index";
+import { TypeKeys } from './index';
 
 export interface SetUserName {
   type: TypeKeys.SET_USER_NAME;
@@ -250,7 +246,7 @@ export interface SetUserName {
 export const setUserName = (name: string) => (dispatch, _getState) => {
   const action: SetUserName = {
     type: TypeKeys.SET_USER_NAME,
-    name
+    name,
   };
   dispatch(action);
 };
@@ -262,12 +258,12 @@ We can now call that action from within a component.
 
 ```tsx
 // /src/components/pages/my-user-info-page.tsx
-import { Component, State, Prop, h } from "@stencil/core";
-import { Store } from "@stencil/redux";
-import { setUserName } from "../../../store/actions/user";
+import { Component, State, Prop, h } from '@stencil/core';
+import { Store } from '@stencil/redux';
+import { setUserName } from '../../../store/actions/user';
 
 @Component({
-  tag: "my-name-input-component"
+  tag: 'my-name-input-component',
   // styleUrl: "name-input-component.css"
 })
 export class NameInputComponent {
@@ -275,19 +271,19 @@ export class NameInputComponent {
   setUserName: typeof setUserName;
 
   @State()
-  name: MyAppState["user"]["name"];
+  name: MyAppState['user']['name'];
 
-  @Prop({ context: "store" })
+  @Prop({ context: 'store' })
   store: Store;
 
   componentWillLoad() {
     this.store.mapDispatchToProps(this, { setUserName });
     this.storeUnsubscribe = this.store.mapStateToProps(this, (state: MyAppState) => {
       const {
-        user: { name }
+        user: { name },
       } = state;
       return {
-        name
+        name,
       };
     });
   }
@@ -300,10 +296,7 @@ export class NameInputComponent {
     return (
       <div>
         <p>{this.name}</p>
-        <input
-          value={this.name}
-          onInput={e => this.setUserName((e.target as any).value)}
-        />
+        <input value={this.name} onInput={e => this.setUserName((e.target as any).value)} />
       </div>
     );
   }
@@ -322,11 +315,11 @@ Back to our user reducer we'll import `ActionTypes` and handle the action.
 
 ```tsx
 // /src/store/reducers/user.ts
-import { ActionTypes, TypeKeys } from "./../actions/index";
+import { ActionTypes, TypeKeys } from './../actions/index';
 
 const getInitialState = (): UserState => {
   return {
-    name: "StencilJS"
+    name: 'StencilJS',
   };
 };
 

@@ -21,21 +21,16 @@ import { Component, Prop, h } from '@stencil/core';
   tag: 'my-first-component',
 })
 export class MyComponent {
-
   // Indicate that name should be a public property on the component
   @Prop() name: string;
 
   render() {
-    return (
-      <p>
-        My name is {this.name}
-      </p>
-    );
+    return <p>My name is {this.name}</p>;
   }
 }
 ```
-> Don't fully understand what's going on? Don't worry, we'll explain each piece in detail later on.
 
+> Don't fully understand what's going on? Don't worry, we'll explain each piece in detail later on.
 
 Once compiled, this component can be used in HTML just like any other tag.
 
@@ -71,6 +66,7 @@ We set this property like so:
 ```markup
 <my-first-component name="Max"></my-first-component>
 ```
+
 Any property decorated with `@Prop()` is also automatically watched for changes.
 If a user of our component were to change the element's `name` property, our component would fire its `render` function again, updating the displayed content.
 

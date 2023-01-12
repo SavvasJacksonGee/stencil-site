@@ -27,7 +27,7 @@ A method decorated with `@Watch()` will automatically run when its associated cl
 import { Component, Prop, State, Watch } from '@stencil/core';
 
 @Component({
-  tag: 'loading-indicator' 
+  tag: 'loading-indicator',
 })
 export class LoadingIndicator {
   // We decorate a class member with @Prop() so that we
@@ -54,6 +54,7 @@ export class LoadingIndicator {
   }
 }
 ```
+
 In the example above, there are two `@Watch()` decorators.
 One decorates `watchPropHandler`, which will fire when the class member `activated` changes.
 The other decorates `watchStateHandler`, which will fire when the class member `busy` changes.
@@ -84,7 +85,7 @@ For example, to push a new item to an array, create a new array with the existin
 import { Component, State, Watch, h } from '@stencil/core';
 
 @Component({
-  tag: 'rand-numbers'
+  tag: 'rand-numbers',
 })
 export class RandomNumbers {
   // We decorate a class member with @State() so that we
@@ -122,25 +123,27 @@ export class RandomNumbers {
        * The reference to `randNumbers` has changed, which
        * will trigger `@Watch` and a re-render
        */
-      this.randNumbers = [...this.randNumbers, newVal]
-    }, 1000)
+      this.randNumbers = [...this.randNumbers, newVal];
+    }, 1000);
   }
 
   disconnectedCallback() {
     if (this.timer) {
-      clearInterval(this.timer)
+      clearInterval(this.timer);
     }
   }
 
   render() {
-    return(
+    return (
       <div>
         randNumbers contains:
         <ol>
-          {this.randNumbers.map((num) => <li>{num}</li>)}
+          {this.randNumbers.map(num => (
+            <li>{num}</li>
+          ))}
         </ol>
       </div>
-    )
+    );
   }
 }
 ```
@@ -156,11 +159,11 @@ Below is an example:
 import { Component, State, Watch, h } from '@stencil/core';
 
 export type NumberContainer = {
-  val: number,
-}
+  val: number;
+};
 
 @Component({
-  tag: 'rand-numbers'
+  tag: 'rand-numbers',
 })
 export class RandomNumbers {
   // We decorate a class member with @State() so that we
@@ -198,13 +201,13 @@ export class RandomNumbers {
        * The reference to `numberContainer` has changed, which
        * will trigger `@Watch` and a re-render
        */
-      this.numberContainer = {...this.numberContainer, val: newVal};
-    }, 1000)
+      this.numberContainer = { ...this.numberContainer, val: newVal };
+    }, 1000);
   }
 
   disconnectedCallback() {
     if (this.timer) {
-      clearInterval(this.timer)
+      clearInterval(this.timer);
     }
   }
 

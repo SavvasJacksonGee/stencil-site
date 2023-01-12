@@ -12,7 +12,7 @@ contributors:
 
 # Events
 
-There is **NOT** such a thing as *stencil events*, instead, Stencil encourages the use of [DOM events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events).
+There is **NOT** such a thing as _stencil events_, instead, Stencil encourages the use of [DOM events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events).
 However, Stencil does provide an API to specify the events a component can emit, and the events a component listens to. It does so with the `Event()` and `Listen()` decorators.
 
 ## Event Decorator
@@ -120,7 +120,6 @@ export interface ListenOptions {
 
 The available options are `target`, `capture` and `passive`:
 
-
 #### target
 
 Handlers can also be registered for an event other than the host itself.
@@ -141,13 +140,11 @@ By default, Stencil uses several heuristics to determine if it must attach a `pa
 
 Please check out [https://developers.google.com/web/updates/2016/06/passive-event-listeners](https://developers.google.com/web/updates/2016/06/passive-event-listeners) for further information.
 
-
 #### capture
 
 Event listener attached with `@Listen` does not "capture" by default.
 When a event listener is set to "capture", it means the event will be dispatched during the "capture phase".
 Check out [https://www.quirksmode.org/js/events_order.html](https://www.quirksmode.org/js/events_order.html) for further information.
-
 
 ```tsx
   @Listen('click', { capture: true })
@@ -168,8 +165,8 @@ handleKeyDown(ev: KeyboardEvent){
   }
 }
 ```
-More info on event key strings can be found in the [w3c spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
+More info on event key strings can be found in the [w3c spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
 ## Using events in JSX
 

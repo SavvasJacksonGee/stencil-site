@@ -18,11 +18,9 @@ import { Component } from '@stencil/core';
 
 @Component({
   tag: 'todo-list',
-  styleUrl: 'todo-list.css'
+  styleUrl: 'todo-list.css',
 })
-export class TodoList {
-
-}
+export class TodoList {}
 ```
 
 ## Component Options
@@ -49,7 +47,7 @@ export interface ComponentOptions {
   /**
    * If `true`, the component will use native shadow-dom encapsulation, it will fallback to `scoped` if the browser
    * does not support shadow-dom natively. Defaults to `false`.
-   * 
+   *
    * If an object literal containing `delegatesFocus` is provided, the component will use native shadow-dom
    * encapsulation. When `delegatesFocus` is set to `true`, the component will have `delegatesFocus: true` added to its
    * shadow DOM. When `delegatesFocus` is `true` and a non-focusable part of the component is clicked:
@@ -91,7 +89,6 @@ export interface ComponentOptions {
 }
 ```
 
-
 ## Embedding or Nesting Components
 
 Components can be composed easily by adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
@@ -102,15 +99,13 @@ Here's an example of using a component within another component:
 import { Component, Prop, h } from '@stencil/core';
 
 @Component({
-  tag: 'my-embedded-component'
+  tag: 'my-embedded-component',
 })
 export class MyEmbeddedComponent {
   @Prop() color: string = 'blue';
 
   render() {
-    return (
-      <div>My favorite color is {this.color}</div>
-    );
+    return <div>My favorite color is {this.color}</div>;
   }
 }
 ```
@@ -119,10 +114,9 @@ export class MyEmbeddedComponent {
 import { Component, h } from '@stencil/core';
 
 @Component({
-  tag: 'my-parent-component'
+  tag: 'my-parent-component',
 })
 export class MyParentComponent {
-
   render() {
     return (
       <div>

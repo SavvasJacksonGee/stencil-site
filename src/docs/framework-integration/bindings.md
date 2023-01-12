@@ -18,5 +18,3 @@ Here is an example project repo using the plugins for reference: https://github.
 
 - [Angular bindings](/docs/angular#bindings)
 - [React bindings](/docs/react#bindings)
-
-

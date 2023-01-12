@@ -1,6 +1,6 @@
 ---
 title: Stencil Core Dev Server API
-description:  Stencil Core Dev Server API
+description: Stencil Core Dev Server API
 url: /docs/dev-server-api
 contributors:
   - adamdbradley

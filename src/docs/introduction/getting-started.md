@@ -11,7 +11,7 @@ contributors:
 
 ## Starting a new project
 
-Stencil requires a recent LTS version of [NodeJS](https://nodejs.org/) and npm. Make sure you've installed and/or 
+Stencil requires a recent LTS version of [NodeJS](https://nodejs.org/) and npm. Make sure you've installed and/or
 updated Node before continuing.
 
 > Note that you will need to use npm 6 or higher.
@@ -27,13 +27,13 @@ provided with a prompt so that you can choose the type of project to start.
 ? Select a starter project.
 
 Starters marked as [community] are developed by the Stencil
-Community, rather than Ionic. For more information on the 
+Community, rather than Ionic. For more information on the
 Stencil Community, please see github.com/stencil-community
 › - Use arrow-keys. Return to submit.
 
 ❯   component          Collection of web components that can be
                        used anywhere
-    app [community]    Minimal starter for building a Stencil 
+    app [community]    Minimal starter for building a Stencil
                        app or website
 ```
 
@@ -48,6 +48,7 @@ Here, we've named our project 'my-first-stencil project'. After hitting `ENTER` 
 scaffold a Stencil project for us in a directory that matches the project name you provided.
 
 Upon successfully creating our project, the CLI will print something similar to the following to the console:
+
 ```bash
 ✔ Project name › my-first-stencil-project
 ✔ All setup  in 26 ms
@@ -87,12 +88,12 @@ dependencies for you, and start the development server.
 
 The second section of the output describes a few useful commands available during the development process:
 
-- `npm start` starts a local development server. The development server will open a new browser tab containing your 
-project's components. The dev-server uses hot-module reloading to update your components in the browser as you modify
-them for a rapid feedback cycle.
+- `npm start` starts a local development server. The development server will open a new browser tab containing your
+  project's components. The dev-server uses hot-module reloading to update your components in the browser as you modify
+  them for a rapid feedback cycle.
 
 - `npm run build` creates a production-ready version of your components. The components generated in this step are not
-meant to be used in the local development server, but rather within a project that consumes your components.
+  meant to be used in the local development server, but rather within a project that consumes your components.
 
 - `npm test` runs your project's tests. The Stencil CLI has created both end-to-end and unit tests when scaffolding your project.
 
@@ -103,7 +104,7 @@ git, run the following after changing your current directory to the root of your
 ```bash
 $ git init
 $ git add -A
-$ git commit -m "initialize project using stencil cli" 
+$ git commit -m "initialize project using stencil cli"
 ```
 
 ## Updating Stencil
