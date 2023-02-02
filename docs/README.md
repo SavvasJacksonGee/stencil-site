@@ -1,11 +1,11 @@
 # Table of Contents
 
 * Introduction
-  * [Overview](introduction/overview.md)
+  * [Overview](introduction/01-overview.md)
   * [Upgrading to Stencil v3](introduction/upgrading-to-stencil-three.md)
-  * [Goals and Objectives](introduction/goals-and-objectives.md)
-  * [Getting Started](introduction/getting-started.md)
-  * [My First Component](introduction/my-first-component.md)
+  * [Goals and Objectives](introduction/02-goals-and-objectives.md)
+  * [Getting Started](introduction/03-getting-started.md)
+  * [My First Component](introduction/04-my-first-component.md)
 * Components
   * [API](components/api.md)
   * [Component](components/component.md)
@@ -20,7 +20,7 @@
   * [Styling](components/styling.md)
   * [Functional Components](components/functional-components.md)
 * Framework Integrations
-  * [Overview](framework-integration/overview.md)
+  * [Overview](framework-integration/01-overview.md)
   * [Bindings](framework-integration/bindings.md)
   * [Angular](framework-integration/angular.md)
   * [React](framework-integration/react.md)
@@ -28,7 +28,7 @@
   * [Ember](framework-integration/ember.md)
   * [JavaScript](framework-integration/javascript.md)
 * Static Site Generation
-  * [Overview](static-site-generation/overview.md)
+  * [Overview](static-site-generation/01-overview.md)
   * [Prerender Config](static-site-generation/prerender-config.md)
   * [Basics](static-site-generation/basics.md)
   * [Debugging](static-site-generation/debugging.md)
@@ -36,13 +36,13 @@
   * [Server Side Rendering](static-site-generation/server-side-rendering-ssr.md)
   * [Deployment](static-site-generation/deployment.md)
 * Config
-  * [Overview](config/overview.md)
+  * [Overview](config/01-overview.md)
   * [Dev Server](config/dev-server.md)
   * [Plugins](config/plugins.md)
   * [Extras](config/extras.md)
   * [CLI](config/cli.md)
 * Output Targets
-  * [Overview](output-targets/overview.md)
+  * [Overview](output-targets/01-overview.md)
   * [dist](output-targets/dist.md)
   * [dist-custom-elements](output-targets/custom-elements.md)
   * [www](output-targets/www.md)
@@ -66,7 +66,7 @@
   * [Typed Components](guides/typed-components.md)
   * [Web Workers](guides/workers.md)
 * Testing
-  * [Overview](testing/overview.md)
+  * [Overview](testing/01-overview.md)
   * [Config](testing/config.md)
   * [Unit Testing](testing/unit-testing.md)
   * [End-to-end Testing](testing/e2e-testing.md)
